@@ -1,43 +1,19 @@
-const { request } = require("express");
-const express = require("express");
-const app = express();
-app.set("views", __dirname + "/templates/views");
-app.set("view engine", "twig");
+const express = require('express')
+const app = express()
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
+const productRouter = require('./routes/Products')
+app.set('views', __dirname + '/templates/views')
+app.set('view engine', 'twig')
 
-app.get("/", (req, res) => {
-  res.render("home");
-});
+app.get('/', (req, res) => {
+    res.render("home", { name: "World!", 'users': [
+        { name: 'Justin Workman!', email: 'jworkman@ByteLengthQueuingStrategy.com' },
+        { name: 'shelby Workman!', email: 'jworkman@ByteLengthQueuingStrategy.com' },
+        { name: 'John Workman!', email: 'jworkman@ByteLengthQueuingStrategy.com' }
+    ] })
+})
 
-// GET / HTTP/1.1
-app.get("/", (req, res) => {
-  res.send("Home Page! GET...");
-});
+app.use("/products", productRouter)
 
-// POST / HTTP/1.1
-app.post("/", (req, res) => {
-  res.send("Home Page! POST...");
-});
-
-// GET /products/all HTTP/1.1
-app.get("/products/all", (req, res) => {
-  res.send(
-    `GET Products: 
-      ${req.get("Page")}, 
-      ${req.get("Sort")}, 
-      ${req.get("Order")}`
-  );
-});
-
-// GET /products/8719-small-red  HTTP/1.1
-app.get("/products/:productId-:productSize-:productColor", (req, res) => {
-  res.send(
-    `GET Products: ${req.params.productId}, ${req.params.productSize}, ${req.params.productColor}`
-  );
-});
-
-// GET /products/8719 HTTP/1.1
-app.get("/products/:productId", (req, res) => {
-  res.send(`GET Products: ${req.params.productId}`);
-});
-
-app.listen(3000);
+app.listen(3000)

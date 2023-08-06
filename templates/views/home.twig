@@ -1,1 +1,12 @@
-<h1>Hello World!</h1>
+{% extends "../layouts/base.twig" %}
+
+{% block main_content %}
+<p>This content is coming from templates/views/home.twig</p>
+{% endblock %}
+
+{% block scripts %}
+<p>Scripts are loaded</p>
+<script>
+    alert('Hello World!')
+</script>
+{% endblock %}

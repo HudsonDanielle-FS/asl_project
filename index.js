@@ -1,6 +1,12 @@
 const { request } = require("express");
 const express = require("express");
 const app = express();
+app.set("views", __dirname + "/templates/views");
+app.set("view engine", "twig");
+
+app.get("/", (req, res) => {
+  res.render("home");
+});
 
 // GET / HTTP/1.1
 app.get("/", (req, res) => {
@@ -16,10 +22,10 @@ app.post("/", (req, res) => {
 app.get("/products/all", (req, res) => {
   res.send(
     `GET Products: 
-      ${req.get('Page')}, 
-      ${req.get('Sort')}, 
-      ${req.get('Order')}`
-      );
+      ${req.get("Page")}, 
+      ${req.get("Sort")}, 
+      ${req.get("Order")}`
+  );
 });
 
 // GET /products/8719-small-red  HTTP/1.1

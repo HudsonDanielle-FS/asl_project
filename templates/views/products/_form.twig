@@ -1,7 +1,7 @@
 <form method="POST" action="/products/{% if prodcut.id %}{{ product.id }}{% endif %}">
 
     {% if product.id %}
-        <input type="hidden" name="id"  value="{{ product.id }}"/>
+        <input type="hidden" name="id" value="{{ product.id }}"/>
     {% endif %}
     <div>
         <label for="name">Name:</label>
@@ -9,10 +9,9 @@
     </div>
     <div>
         <label for="price">Price:</label>
-        <input type="number" price="price" id="price" value="{{ product.price }}" />
+        <input type="number" name="price" id="price" value="{{ product.price }}" />
     </div>
     <div>
-        <label for="name">Name:</label>
         <input type="submit" type="submit" />
     </div>
 </form>

@@ -6,8 +6,20 @@
         <input type="text" name="title" id="title" value="{{ product.title }}" />
     </div>
     <div>
+        <label for="slug">Slug:</label>
+        <input type="text" name="slug" id="slug" value="{{ product.slug }}" />
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description" value="{{ product.description }}" />
+    </div>
+    <div>
         <label for="price">Price:</label>
         <input type="number" name="price" id="price" value="{{ product.price }}" />
+    </div>
+    <div>
+        <label for="is_published">Is Published:</label>
+        <input type="boolean" name="is_published" id="is_published" value="{{ product.is_published }}" />
     </div>
     <div>
         <input type="submit" type="submit" />

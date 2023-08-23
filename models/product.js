@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     slug: DataTypes.STRING,
     description: DataTypes.TEXT('long'),
     price: DataTypes.INTEGER,
-    id_published: DataTypes.BOOLEAN
+    is_published: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Product',

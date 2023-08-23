@@ -11,7 +11,6 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.removeColumn("Products", "slug");
     await queryInterface.addColumn("Products", "slug", {
       type: Sequelize.STRING,
       defaultValue: "",

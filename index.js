@@ -8,6 +8,9 @@ const imagesRouter = require('./routes/Images')
 app.set('views', __dirname + '/templates')
 app.set('view engine', 'twig')
 
+const fileUpload = require('express-fileupload')
+app.use(fileUpload())
+
 app.get('/', (req, res) => {
     res.render("views/home")
 })
@@ -15,5 +18,6 @@ app.get('/', (req, res) => {
 app.use("/products", productRouter)
 app.use("/variants", variantsRouter)
 app.use("/images", imagesRouter)
+app.use("/public", express.static('public'))
 
 app.listen(3000)
